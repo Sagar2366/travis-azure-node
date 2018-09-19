@@ -25,18 +25,17 @@ before_script :
 
 script :
   - node app.js
+  - npm run test
+  - npm run build
 
 after_script :
   - echo "Running execution script successfully !!!"
     
 before_deploy :
-  - echo "Starting deployment of node.js application on to azure provider"
+  - cd build
 
 deploy :
   - provider : azure_web_apps
-  - username : gslazure-travis-node-user
-  - password : gslazure-travis-node-pwd
-  - site : https://gslazure-travis-node2.azurewebsites.net
   - verbose : true
   - on:
     all_branches: true
