@@ -1,7 +1,6 @@
-language: node_js
+dist: trusty
+sudo: required
 
-node_js:
-  - "8"
 
 before_install:
   - npm install -g npm@latest
@@ -14,7 +13,7 @@ before_install :
   - echo "starting installation of dependencies for node.js application"
 
 addons:
-  sonarqube:
+  sonarcloud:
     organization: sonarcube-org
     token: 
       secure: 0e900fdc01db4c85561b5d14d323461afdc73b7e  
