@@ -1,0 +1,1 @@
+echo "Starting deployment of node.js application on to azure provider"

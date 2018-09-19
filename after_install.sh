@@ -1,0 +1,1 @@
+echo "Finishing installation process successfully !"

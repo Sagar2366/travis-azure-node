@@ -1,0 +1,1 @@
+echo "Finishing deployment on to azure provider successfully !"
