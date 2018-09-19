@@ -24,14 +24,13 @@ before_script :
   - echo "Running execution script !!!"
 
 script :
-  - npm run test
-  - npm run build
+  - node app.js
 
 after_script :
   - echo "Running execution script successfully !!!"
     
 before_deploy :
-  - cd build
+  - echo "Starting deployment of node.js application on to azure provider"
 
 deploy :
   - provider : azure_web_apps
