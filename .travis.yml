@@ -14,9 +14,7 @@ before_install :
 
 addons:
   sonarcloud:
-    organization: sonarcube-org
-    token: 
-      secure: 98c8a0b41d5acf72fcdee46f3550b6d0b8b36e86  
+    organization: sonarcube-org 
 
 install:
   - npm install http
