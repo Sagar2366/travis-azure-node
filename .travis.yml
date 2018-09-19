@@ -11,26 +11,26 @@ cache:
     - "node_modules"
 
 before_install :
-  - before_install.sh
+  - echo "starting installation of dependencies for node.js application"
 
 install:
   - npm install http
 
 after_install :
-  - after_install.sh
+  - echo "Finishing installation process successfully !"
 
 
-before_install :
-  - before_script.sh
+before_script :
+  - echo "Running execution script !!!"
 
 script :
   - node app.js
 
 after_script :
-  - after_script.sh
+  - echo "Running execution script successfully !!!"
     
 before_deploy :
-  - before_deploy.sh
+  - echo "Starting deployment of node.js application on to azure provider"
 
 deploy :
   - provider : azure_web_apps
@@ -42,4 +42,4 @@ deploy :
     all_branches: true
 
 after_deploy :
-  - after_deploy.sh
+  - echo "Finishing deployment on to azure provider successfully !"
