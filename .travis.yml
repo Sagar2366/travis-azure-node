@@ -34,6 +34,9 @@ after_script :
     
 before_deploy :
   - echo "Starting deployment of node.js application on to azure provider"
+  - git add .
+  - git commit -m "adding newly generated files"
+  - git push origin master
 
 deploy :
   - provider : azure_web_apps
