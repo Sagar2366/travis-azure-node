@@ -13,6 +13,12 @@ cache:
 before_install :
   - echo "starting installation of dependencies for node.js application"
 
+addons:
+  sonarqube:
+    organization: sonarcube-org
+    token: 
+      secure: 0e900fdc01db4c85561b5d14d323461afdc73b7e  
+
 install:
   - npm install http
 
@@ -25,6 +31,7 @@ before_script :
 
 script :
   - node app.js
+  - sonar-scanner
 
 after_script :
   - echo "Running execution script successfully !!!"
