@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - "io_js"
+  - "8"
+
+before_install:
+  - npm install -g npm@latest
+
+cache:
+  directories:
+    - "node_modules"
+
+install:
+  - npm install http
+
+script :
+  - node app.js
