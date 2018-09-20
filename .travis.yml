@@ -50,13 +50,13 @@ language : node_js
 before_install:
   - npm install -g npm@latest
 
+install:
+  - npm install http
+
 cache:
   directories:
     - "node_modules"
 
-install:
-  - npm install http
-  
 addons:
   sonarcloud:
     organization: sonarcube-org
