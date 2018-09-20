@@ -14,14 +14,11 @@ before_install :
 
 addons:
   sonarcloud:
-    organization: sonarcube-org 
+    organization: sonarcube-org
+    token: f478686cecf461a6ff67cd69f5c552de3c60eda3 
 
 install:
   - npm install http
-
-after_install :
-  - echo "Finishing installation process successfully !"
-
 
 before_script :
   - echo "Running execution script !!!"
@@ -34,11 +31,11 @@ after_script :
     
 before_deploy :
   - echo "Starting deployment of node.js application on to azure provider"
-  
-deploy :
-  - provider : azure_web_apps
-  - verbose : true
-  - on:
+
+deploy:
+  provider: azure_web_apps
+  verbose : true
+  on:
     all_branches: true
 
 after_deploy :
