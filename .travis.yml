@@ -1,6 +1,18 @@
-dist: trusty
 sudo: required
+dist: trusty
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+  sonarcloud:
+    organization: sonarcube-org
+
+language: node_js
+node_js:
+  - "8"
 
 before_install:
   - npm install -g npm@latest
@@ -11,12 +23,7 @@ cache:
 
 before_install :
   - echo "starting installation of dependencies for node.js application"
-
-addons:
-  sonarcloud:
-    organization: sonarcube-org
-    token: f478686cecf461a6ff67cd69f5c552de3c60eda3 
-
+ 
 install:
   - npm install http
 
