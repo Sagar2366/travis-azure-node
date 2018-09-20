@@ -1,75 +1,48 @@
-# dist: trusty
-# sudo: required
-
-
-# before_install:
-#   - npm install -g npm@latest
-
-# cache:
-#   directories:
-#     - "node_modules"
-
-# addons:
-#   sonarcloud:
-#     organization: sonarcube-org 
-
-# install:
-#   - npm install http
-#   - yarn install
-
-# before_script :
-#   - echo "Running execution script !!!"
-
-# script :
-#   - yarn build
-#   - sonar-scanner
-
-# after_script :
-#   - echo "Running execution script successfully !!!"
-    
-# # before_deploy :
-# #   - echo "Starting deployment of node.js application on to azure provider"
-# #   - git add .
-# #   - git commit -m "adding newly generated files"
-# #   - git push origin master
-
-# deploy:
-#   provider: azure_web_apps
-#   verbose : true
-#   on:
-#     all_branches: true
-
-
-# # after_deploy :
-# #   - echo "Finishing deployment on to azure provider successfully !"
-
-
-language : node_js
+dist: trusty
+sudo: required
 
 
 before_install:
   - npm install -g npm@latest
 
-install:
-  - npm install http
-
 cache:
   directories:
     - "node_modules"
 
+before_install :
+  - echo "starting installation of dependencies for node.js application"
+
 addons:
   sonarcloud:
-    organization: sonarcube-org
-    token: f478686cecf461a6ff67cd69f5c552de3c60eda3
+    organization: sonarcube-org 
+
+install:
+  - npm install http
+
+after_install :
+  - echo "Finishing installation process successfully !"
+
+
+before_script :
+  - echo "Running execution script !!!"
+
 script :
   - sonar-scanner
 
 after_script :
   - echo "Running execution script successfully !!!"
     
+before_deploy :
+  - echo "Starting deployment of node.js application on to azure provider"
+  - git add .
+  - git commit -m "adding newly generated files"
+  - git push origin master
 
-deploy:
-  provider: azure_web_apps
-  verbose : true
-  on:
+deploy :
+  - provider : azure_web_apps
+  - verbose : true
+  - on:
     all_branches: true
+
+after_deploy :
+  - echo "Finishing deployment on to azure provider successfully !"
