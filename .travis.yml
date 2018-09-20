@@ -18,6 +18,7 @@ addons:
 
 install:
   - npm install http
+  - yarn install
 
 after_install :
   - echo "Finishing installation process successfully !"
@@ -27,22 +28,23 @@ before_script :
   - echo "Running execution script !!!"
 
 script :
+  - yarn build
   - sonar-scanner
 
 after_script :
   - echo "Running execution script successfully !!!"
     
-before_deploy :
-  - echo "Starting deployment of node.js application on to azure provider"
-  - git add .
-  - git commit -m "adding newly generated files"
-  - git push origin master
+# before_deploy :
+#   - echo "Starting deployment of node.js application on to azure provider"
+#   - git add .
+#   - git commit -m "adding newly generated files"
+#   - git push origin master
 
-deploy :
-  - provider : azure_web_apps
-  - verbose : true
-  - on:
-    all_branches: true
+# deploy :
+#   - provider : azure_web_apps
+#   - verbose : true
+#   - on:
+#     all_branches: true
 
-after_deploy :
-  - echo "Finishing deployment on to azure provider successfully !"
+# after_deploy :
+#   - echo "Finishing deployment on to azure provider successfully !"
