@@ -40,11 +40,11 @@ after_script :
 #   - git commit -m "adding newly generated files"
 #   - git push origin master
 
-# deploy :
-#   - provider : azure_web_apps
-#   - verbose : true
-#   - on:
-#     all_branches: true
+deploy :
+- provider : azure_web_apps
+- verbose : true
+- on:
+  all_branches: true
 
 # after_deploy :
 #   - echo "Finishing deployment on to azure provider successfully !"
